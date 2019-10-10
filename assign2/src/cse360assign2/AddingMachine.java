@@ -18,6 +18,7 @@ package cse360assign2;
 public class AddingMachine {
 
 	private int total;  //Integer variable which is the total of all numbers.
+	private String transaction; //String contains the history of transaction.
 	
 	/**
 	 * Class constructor which takes no parameter.
@@ -25,6 +26,7 @@ public class AddingMachine {
 	 */
 	public AddingMachine () {
 		total = 0;  // not needed - included for clarity
+		transaction = "0";  //The history should start with 0.
 	}
 	
 	/**
@@ -33,41 +35,45 @@ public class AddingMachine {
 	 * @return	The sum of all current numbers
 	 */
 	public int getTotal () {
-		return 0;
+		return total;
 	}
 	
 	/**
-	 * This method should add the parameter to the total
+	 * This method should add the parameter to the total,
+	 * and should update the history of transaction.
 	 * 
 	 * @param value	The number taken from user's input
 	 */
 	public void add (int value) {
-		
+		total = total + value;
+		transaction = transaction + " + " + value;
 	}
 	
 	/**
-	 * This method should subtract the parameter from the total.
+	 * This method should subtract the parameter from the total,
+	 * and should update the history of transaction.
 	 * 
 	 * @param value	The number taken from user's input
 	 */
 	public void subtract (int value) {
-		
+		total = total - value;
+		transaction = transaction + " - " + value;
 	}
 		
 	/**
-	 * This method should keep a record of history of the transactions,
-	 * and should return the history in a string.
+	 * This method should return the history of transaction in a string.
 	 * 
-	 * @return	The history of transaction in string
+	 * @return	The history of transaction
 	 */
 	public String toString () {
-		return "";
+		return transaction;
 	}
 
 	/**
 	 * This method should clean the total and all history of transaction.
 	 */
 	public void clear() {
-	
+		total = 0;
+		transaction = "0";
 	}
 }
